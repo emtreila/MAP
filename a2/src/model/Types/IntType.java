@@ -1,0 +1,24 @@
+package model.Types;
+
+import model.Values.IntValue;
+import model.Values.IValue;
+
+public class IntType implements IType {
+    
+    public IntType(){}
+
+    @Override
+    public boolean equals(Object anotherType) {
+        return anotherType instanceof IntType;
+    }
+
+    @Override
+    public String toString() {
+        return "int";
+    }
+
+    @Override
+    public IValue defaultValue(){
+        return new IntValue(0);
+    }
+}
