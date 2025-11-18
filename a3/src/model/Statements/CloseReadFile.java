@@ -17,31 +17,37 @@ public class CloseReadFile implements IStatement {
     public CloseReadFile(IExpression expression) {
         this.expression = expression;
     }
-    
+
     @Override
-    public ProgramState execute(ProgramState state) {
+    public ProgramState execute(ProgramState state) throws StatementExecutionException {
         IDictionary<String, BufferedReader> fileTable = state.getFileTable();
-        IValue value = this.expression.eval(state.getSymTable());
-        if (value.getType().equals(new StringType())){
-            StringValue fileName = (StringValue) value;
-            if (fileTable.isDefined(fileName.getValue())){
-                BufferedReader bufferedReader = fileTable.getValue(fileName.getValue());
-                try {
-                    bufferedReader.close();
-                } catch (IOException e) {
-                    throw new StatementExecutionException("Could not close file " + fileName.getValue());
-                }
-                fileTable.remove(fileName.getValue());
-            }
-            else {
-                throw new StatementExecutionException("File " + fileName.getValue() + " is not opened.");
-            }
+
+        IValue value = expression.eval(state.getSymTable());
+        if (!value.getType().equals(new StringType())) {
+            throw new StatementExecutionException(
+                    "Expression " + expression + " is not of type string."
+            );
         }
-        else {
-            throw new StatementExecutionException("Expression " + this.expression + " is not of type string.");
+
+        String fileName = ((StringValue) value).getValue();
+        if (!fileTable.isDefined(fileName)) {
+            throw new StatementExecutionException(
+                    "File " + fileName + " is not opened."
+            );
+        }
+
+        BufferedReader reader = fileTable.getValue(fileName);
+        try {
+            reader.close();
+            fileTable.remove(fileName);
+        } catch (IOException e) {
+            throw new StatementExecutionException(
+                    "Could not close file " + fileName
+            );
         }
         return state;
     }
+
 
     @Override
     public String toString() {

@@ -23,26 +23,32 @@ public class OpenReadFile implements IStatement {
     public ProgramState execute(ProgramState state) throws StatementExecutionException {
         IDictionary<String, IValue> symTable = state.getSymTable();
         IDictionary<String, BufferedReader> fileTable = state.getFileTable();
-        IValue value = this.expression.eval(symTable);
-        if (value.getType().equals(new StringType())) {
-            StringValue fileName = (StringValue) value;
-            if (!fileTable.isDefined(fileName.getValue())){
-                BufferedReader bufferedReader;
-                try {
-                    bufferedReader = new BufferedReader(new FileReader(fileName.getValue()));
-                } catch (IOException e) {
-                    throw new StatementExecutionException("Could not open file " + fileName.getValue());
-                }
-                fileTable.add(fileName.getValue(), bufferedReader);
-            }
-            else {
-                throw new StatementExecutionException("File " + fileName.getValue() + " is already opened.");
-            }
-        } else {
-            throw new StatementExecutionException("Expression " + this.expression + " is not of type string.");
+
+        IValue value = expression.eval(symTable);
+        if (!value.getType().equals(new StringType())) {
+            throw new StatementExecutionException(
+                    "Expression " + expression + " is not of type string."
+            );
+        }
+
+        String fileName = ((StringValue) value).getValue();
+        if (fileTable.isDefined(fileName)) {
+            throw new StatementExecutionException(
+                    "File " + fileName + " is already opened."
+            );
+        }
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(fileName));
+            fileTable.add(fileName, reader);
+        } catch (IOException e) {
+            throw new StatementExecutionException(
+                    "Could not open file " + fileName
+            );
         }
         return state;
     }
+
 
     @Override
     public String toString() {

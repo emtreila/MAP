@@ -12,9 +12,9 @@ import java.util.Objects;
 public class RelationalExpression implements IExpression {
     private IExpression expr1;
     private IExpression expr2;
-    private String operator;
+    private ROperator operator;
 
-    public RelationalExpression(IExpression expr1, IExpression expr2, String operator) {
+    public RelationalExpression(IExpression expr1, IExpression expr2, ROperator operator) {
         this.expr1 = expr1;
         this.expr2 = expr2;
         this.operator = operator;
@@ -33,17 +33,17 @@ public class RelationalExpression implements IExpression {
                 int v1, v2;
                 v1 = val1.getValue();
                 v2 = val2.getValue();
-                if (Objects.equals(this.operator, "<"))
+                if (this.operator == ROperator.LESS)
                     return new BoolValue(v1 < v2);
-                else if (Objects.equals(this.operator, "<="))
+                else if (this.operator == ROperator.LESS_EQUAL)
                     return new BoolValue(v1 <= v2);
-                else if (Objects.equals(this.operator, "=="))
+                else if (this.operator == ROperator.EQUAL)
                     return new BoolValue(v1 == v2);
-                else if (Objects.equals(this.operator, "!="))
+                else if (this.operator == ROperator.NOT_EQUAL)
                     return new BoolValue(v1 != v2);
-                else if (Objects.equals(this.operator, ">"))
+                else if (this.operator == ROperator.GREATER)
                     return new BoolValue(v1 > v2);
-                else if (Objects.equals(this.operator, ">="))
+                else if (this.operator == ROperator.GREATER_EQUAL)
                     return new BoolValue(v1 >= v2);
             } else
                 throw new ExpressionEvaluationException("Second operand is not an integer.");

@@ -27,39 +27,45 @@ public class ReadFile implements IStatement {
         IDictionary<String, IValue> symTable = state.getSymTable();
         IDictionary<String, BufferedReader> fileTable = state.getFileTable();
 
-        if (symTable.isDefined(this.varName)) {
-            IValue variableValue = symTable.getValue(this.varName);
-            if (variableValue.getType().equals(new IntType())) {
-                IValue value = this.expression.eval(symTable);
-                if (value.getType().equals(new StringType())) {
-                    StringValue castedFileNameValue = (StringValue) value;
-                    if (fileTable.isDefined(castedFileNameValue.getValue())) {
-                        BufferedReader bufferedReader = fileTable.getValue(castedFileNameValue.getValue());
-                        try {
-                            String line = bufferedReader.readLine();
-                            if (line == null) {
-                                line = "0";
-                            }
-                            symTable.update(this.varName, new IntValue(Integer.parseInt(line)));
-                        } catch (IOException e) {
-                            throw new StatementExecutionException("Could not read from file " + castedFileNameValue.getValue());
-                        } catch (NumberFormatException e) {
-                            throw new StatementExecutionException("File " + castedFileNameValue.getValue() + " contains a non-integer value.");
-                        }
-                    } else {
-                        throw new StatementExecutionException("The File Table does not contain " + castedFileNameValue.getValue());
-                    }
-                } else {
-                    throw new StatementExecutionException("Expression " + this.expression.toString() + " is not of type string.");
-                }
-            } else {
-                throw new StatementExecutionException("Variable " + this.varName + " is not of type int.");
-            }
-        } else {
+        if (!symTable.isDefined(this.varName)) {
             throw new StatementExecutionException("Variable " + this.varName + " is not defined.");
+        }
+
+        IValue varValue = symTable.getValue(this.varName);
+        if (!varValue.getType().equals(new IntType())) {
+            throw new StatementExecutionException("Variable " + this.varName + " is not of type int.");
+        }
+
+        IValue exprValue = this.expression.eval(symTable);
+        if (!exprValue.getType().equals(new StringType())) {
+            throw new StatementExecutionException("Expression " + this.expression + " is not of type string.");
+        }
+
+        String fileName = ((StringValue) exprValue).getValue();
+        if (!fileTable.isDefined(fileName)) {
+            throw new StatementExecutionException("The File Table does not contain " + fileName);
+        }
+
+        BufferedReader reader = fileTable.getValue(fileName);
+        try {
+            String line = reader.readLine();
+
+            IValue newValue;
+            if (line == null) {
+                newValue = varValue.getType().defaultValue();
+            } else {
+                newValue = new IntValue(Integer.parseInt(line));
+            }
+            symTable.update(varName, newValue);
+
+        } catch (IOException e) {
+            throw new StatementExecutionException("Could not read from file " + fileName);
+        } catch (NumberFormatException e) {
+            throw new StatementExecutionException("File " + fileName + " contains a non-integer value.");
         }
         return state;
     }
+
 
     @Override
     public String toString() {
