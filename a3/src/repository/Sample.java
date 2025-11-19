@@ -1,25 +1,26 @@
 package repository;
 
-import model.Expressions.AOperator;
-import model.Expressions.ArithmeticExpression;
-import model.Expressions.ValueExpression;
-import model.Expressions.VariableExpression;
-import model.Statements.*;
-import model.Types.BoolType;
-import model.Types.IntType;
-import model.Types.StringType;
-import model.Values.BoolValue;
-import model.Values.IntValue;
-import model.Values.StringValue;
+import model.expressions.AOperator;
+import model.expressions.ArithmeticExpression;
+import model.expressions.ValueExpression;
+import model.expressions.VariableExpression;
+import model.statements.*;
+import model.types.BoolType;
+import model.types.IntType;
+import model.types.StringType;
+import model.values.BoolValue;
+import model.values.IntValue;
+import model.values.StringValue;
 
 public class Sample {
     private IStatement[] statement;
-    
+
     public Sample() {
         this.statement = new IStatement[5];
-        this.addStatements();;
+        this.addStatements();
+        ;
     }
-    
+
     public void addStatements() {
         IStatement ex1 = new CompoundStatement(
                 new VarDeclStatement("v", new IntType()),
@@ -104,9 +105,8 @@ public class Sample {
         this.statement[2] = ex3;
         this.statement[3] = ex4;
     }
-    
+
     public IStatement getStatement(int index) {
         return this.statement[index];
     }
-    
 }

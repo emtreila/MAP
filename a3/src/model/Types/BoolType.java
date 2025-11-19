@@ -1,7 +1,7 @@
-package model.Types;
+package model.types;
 
-import model.Values.BoolValue;
-import model.Values.IValue;
+import model.values.BoolValue;
+import model.values.IValue;
 
 public class BoolType implements IType {
     

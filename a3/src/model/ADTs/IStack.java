@@ -1,4 +1,4 @@
-package model.ADTs;
+package model.adts;
 
 import exceptions.StackException;
 

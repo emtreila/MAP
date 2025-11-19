@@ -1,10 +1,10 @@
-package model.Expressions;
+package model.expressions;
 
 import exceptions.ExpressionEvaluationException;
-import model.ADTs.IDictionary;
-import model.Types.BoolType;
-import model.Values.BoolValue;
-import model.Values.IValue;
+import model.adts.IDictionary;
+import model.types.BoolType;
+import model.values.BoolValue;
+import model.values.IValue;
 
 import java.util.Objects;
 
@@ -23,29 +23,24 @@ public class LogicExpression implements IExpression {
 
     @Override
     public IValue eval(IDictionary<String, IValue> symTable) throws ExpressionEvaluationException {
-        IValue val1, val2;
-        val1 = this.exp1.eval(symTable);
-        if (val1.getType().equals(new BoolType())) {
-            val2 = this.exp2.eval(symTable);
-            if (val2.getType().equals(new BoolType())) {
-                BoolValue bool1 = (BoolValue) val1;
-                BoolValue bool2 = (BoolValue) val2;
-                boolean b1, b2;
-                b1 = bool1.getValue();
-                b2 = bool2.getValue();
-                if (Objects.equals(this.operation, "&&")) {
-                    return new BoolValue(b1 && b2);
-                } else if (Objects.equals(this.operation, "||")) {
-                    return new BoolValue(b1 || b2);
-                }
-            } else {
-                throw new ExpressionEvaluationException("Second operand is not a boolean!");
-            }
-        } else {
+        IValue val1 = this.exp1.eval(symTable);
+        if (!val1.getType().equals(new BoolType()))
             throw new ExpressionEvaluationException("First operand is not a boolean!");
-        }
-        return null;
+
+        IValue val2 = this.exp2.eval(symTable);
+        if (!val2.getType().equals(new BoolType()))
+            throw new ExpressionEvaluationException("Second operand is not a boolean!");
+
+        boolean b1 = ((BoolValue) val1).getValue();
+        boolean b2 = ((BoolValue) val2).getValue();
+
+        return switch (this.operation) {
+            case "&&" -> new BoolValue(b1 && b2);
+            case "||" -> new BoolValue(b1 || b2);
+            default -> throw new ExpressionEvaluationException("Undefined boolean operator: " + this.operation);
+        };
     }
+
 
     @Override
     public String toString() {

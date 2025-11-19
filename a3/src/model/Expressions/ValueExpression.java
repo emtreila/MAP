@@ -1,8 +1,8 @@
-package model.Expressions;
+package model.expressions;
 
 import exceptions.ExpressionEvaluationException;
-import model.ADTs.IDictionary;
-import model.Values.IValue;
+import model.adts.IDictionary;
+import model.values.IValue;
 
 public class ValueExpression implements IExpression {
 

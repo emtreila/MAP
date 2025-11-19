@@ -1,13 +1,13 @@
-package model.Statements;
+package model.statements;
 
 import exceptions.StatementExecutionException;
-import model.ADTs.IDictionary;
-import model.ADTs.IStack;
-import model.Expressions.IExpression;
+import model.adts.IDictionary;
+import model.adts.IStack;
+import model.expressions.IExpression;
 import model.ProgramState;
-import model.Types.BoolType;
-import model.Values.BoolValue;
-import model.Values.IValue;
+import model.types.BoolType;
+import model.values.BoolValue;
+import model.values.IValue;
 
 public class IfStatement implements IStatement {
     private IExpression expression;

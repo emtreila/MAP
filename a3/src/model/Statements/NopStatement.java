@@ -1,4 +1,4 @@
-package model.Statements;
+package model.statements;
 
 import model.ProgramState;
 

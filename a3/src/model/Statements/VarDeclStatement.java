@@ -1,10 +1,10 @@
-package model.Statements;
+package model.statements;
 
 import exceptions.StatementExecutionException;
-import model.ADTs.IDictionary;
+import model.adts.IDictionary;
 import model.ProgramState;
-import model.Types.IType;
-import model.Values.IValue;
+import model.types.IType;
+import model.values.IValue;
 
 public class VarDeclStatement implements IStatement {
     

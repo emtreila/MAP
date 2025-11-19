@@ -1,12 +1,12 @@
-package model.Statements;
+package model.statements;
 
 
 import exceptions.StatementExecutionException;
-import model.ADTs.IDictionary;
-import model.ADTs.IList;
-import model.Expressions.IExpression;
+import model.adts.IDictionary;
+import model.adts.IList;
+import model.expressions.IExpression;
 import model.ProgramState;
-import model.Values.IValue;
+import model.values.IValue;
 
 public class PrintStatement implements IStatement {
     private IExpression exp;

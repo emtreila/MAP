@@ -1,14 +1,14 @@
-package model.Statements;
+package model.statements;
 
 import exceptions.StatementExecutionException;
-import model.ADTs.IDictionary;
-import model.Expressions.IExpression;
+import model.adts.IDictionary;
+import model.expressions.IExpression;
 import model.ProgramState;
-import model.Types.IntType;
-import model.Types.StringType;
-import model.Values.IValue;
-import model.Values.IntValue;
-import model.Values.StringValue;
+import model.types.IntType;
+import model.types.StringType;
+import model.values.IValue;
+import model.values.IntValue;
+import model.values.StringValue;
 
 import java.io.BufferedReader;
 import java.io.IOException;

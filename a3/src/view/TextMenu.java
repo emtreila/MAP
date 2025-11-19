@@ -28,12 +28,20 @@ public class TextMenu {
             printMenu();
             System.out.printf("Input the option: ");
             String key = scanner.nextLine();
-            Command command = commands.get(key);
+            Command command = this.commands.get(key);
             if (command == null) {
                 System.out.println("Invalid option!");
                 continue;
             }
             command.execute();
         }
+    }
+    
+    public String getCommand(String key) {
+        Command command = this.commands.get(key);
+        if (command == null) {
+            return "Invalid option!";
+        }
+        return command.getDescription();
     }
 }

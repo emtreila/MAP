@@ -1,8 +1,8 @@
-package model.Expressions;
+package model.expressions;
 
 import exceptions.ExpressionEvaluationException;
-import model.ADTs.IDictionary;
-import model.Values.IValue;
+import model.adts.IDictionary;
+import model.values.IValue;
 
 public class VariableExpression implements IExpression {
 
@@ -14,14 +14,19 @@ public class VariableExpression implements IExpression {
 
     @Override
     public IValue eval(IDictionary<String, IValue> symTable) throws ExpressionEvaluationException {
-        if (!symTable.isDefined(this.name)) {
+        if (symTable == null)
+            throw new ExpressionEvaluationException("Symbol table is null!");
+
+        IValue result = symTable.getValue(this.name);
+        if (result == null)
             throw new ExpressionEvaluationException("Variable " + this.name + " is not defined!");
-        }
-        return symTable.getValue(this.name);
+
+        return result;
     }
-    
+
+
     @Override
-    public String toString(){
+    public String toString() {
         return this.name;
     }
 }

@@ -1,10 +1,10 @@
-package model.Expressions;
+package model.expressions;
 
 import exceptions.ExpressionEvaluationException;
-import model.ADTs.IDictionary;
-import model.Types.IntType;
-import model.Values.IntValue;
-import model.Values.IValue;
+import model.adts.IDictionary;
+import model.types.IntType;
+import model.values.IntValue;
+import model.values.IValue;
 
 public class ArithmeticExpression implements IExpression {
 
@@ -17,44 +17,36 @@ public class ArithmeticExpression implements IExpression {
         this.exp2 = exp2;
         this.operation = op;
     }
-    
+
 
     @Override
     public IValue eval(IDictionary<String, IValue> symTable) throws ExpressionEvaluationException {
-        IValue val1, val2;
-        val1 = this.exp1.eval(symTable);
-        if (val1.getType().equals(new IntType())) {
-            val2 = this.exp2.eval(symTable);
-            if (val2.getType().equals(new IntType())) {
-                IntValue int1 = (IntValue) val1;
-                IntValue int2 = (IntValue) val2;
-                int n1, n2;
-                n1 = int1.getValue();
-                n2 = int2.getValue();
+        IValue val1 = this.exp1.eval(symTable);
 
-                if (this.operation == AOperator.ADD) {
-                    return new IntValue(n1 + n2);
-                } else if (this.operation == AOperator.SUB) {
-                    return new IntValue(n1 - n2);
-                } else if (this.operation == AOperator.MUL) {
-                    return new IntValue(n1 * n2);
-                } else if (this.operation == AOperator.DIV) {
-                    if (n2 == 0) {
-                        throw new ExpressionEvaluationException("Division by 0!");
-                    } else {
-                        return new IntValue(n1 / n2);
-                    }
-                } else {
-                    throw new ExpressionEvaluationException("Invalid operation!");
-                }
-            } else {
-                throw new ExpressionEvaluationException("Second operand is not an integer!");
-            }
-        } else {
+        if (!val1.getType().equals(new IntType()))
             throw new ExpressionEvaluationException("First operand is not an integer!");
-        }
 
+        IValue val2 = this.exp2.eval(symTable);
+
+        if (!val2.getType().equals(new IntType()))
+            throw new ExpressionEvaluationException("Second operand is not an integer!");
+
+        int n1 = ((IntValue) val1).getValue();
+        int n2 = ((IntValue) val2).getValue();
+
+        return switch (this.operation) {
+            case ADD -> new IntValue(n1 + n2);
+            case SUB -> new IntValue(n1 - n2);
+            case MUL -> new IntValue(n1 * n2);
+            case DIV -> {
+                if (n2 == 0)
+                    throw new ExpressionEvaluationException("Division by 0!");
+                yield new IntValue(n1 / n2);
+            }
+            default -> throw new ExpressionEvaluationException("Invalid arithmetic operation: " + this.operation);
+        };
     }
+
 
     @Override
     public String toString() {

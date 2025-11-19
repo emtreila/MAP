@@ -1,6 +1,6 @@
-package model.Types;
+package model.types;
 
-import model.Values.IValue;
+import model.values.IValue;
 
 public interface IType {
     boolean equals(Object anotherType);

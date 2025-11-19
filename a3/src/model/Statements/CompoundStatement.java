@@ -1,7 +1,6 @@
-package model.Statements;
+package model.statements;
 
-import exceptions.StatementExecutionException;
-import model.ADTs.IStack;
+import model.adts.IStack;
 import model.ProgramState;
 
 public class CompoundStatement implements IStatement {

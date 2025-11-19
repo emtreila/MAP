@@ -1,7 +1,7 @@
-package model.Types;
+package model.types;
 
-import model.Values.IntValue;
-import model.Values.IValue;
+import model.values.IntValue;
+import model.values.IValue;
 
 public class IntType implements IType {
     

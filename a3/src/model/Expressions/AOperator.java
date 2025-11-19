@@ -1,4 +1,4 @@
-package model.Expressions;
+package model.expressions;
 
 public enum AOperator {
     ADD,

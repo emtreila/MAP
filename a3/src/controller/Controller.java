@@ -1,9 +1,9 @@
 package controller;
 
 import exceptions.StatementExecutionException;
-import model.ADTs.IStack;
+import model.adts.IStack;
 import model.ProgramState;
-import model.Statements.IStatement;
+import model.statements.IStatement;
 import repository.IRepo;
 
 import java.io.IOException;

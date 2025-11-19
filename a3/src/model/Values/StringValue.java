@@ -1,7 +1,7 @@
-package model.Values;
+package model.values;
 
-import model.Types.IType;
-import model.Types.StringType;
+import model.types.IType;
+import model.types.StringType;
 
 public class StringValue implements IValue {
     private String value;

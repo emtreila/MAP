@@ -40,3 +40,10 @@ Out:
    2
 FileTable:
 
+ExeStack:
+SymTable:
+   v --> 2
+Out:
+   2
+FileTable:
+

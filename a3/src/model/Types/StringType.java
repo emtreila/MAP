@@ -1,7 +1,7 @@
-package model.Types;
+package model.types;
 
-import model.Values.IValue;
-import model.Values.StringValue;
+import model.values.IValue;
+import model.values.StringValue;
 
 public class StringType implements IType{
     

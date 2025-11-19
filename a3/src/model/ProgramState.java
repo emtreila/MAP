@@ -1,8 +1,8 @@
 package model;
 
-import model.ADTs.*;
-import model.Statements.IStatement;
-import model.Values.IValue;
+import model.adts.*;
+import model.statements.IStatement;
+import model.values.IValue;
 
 import java.io.BufferedReader;
 import java.util.List;
