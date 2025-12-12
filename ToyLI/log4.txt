@@ -1,3 +1,4 @@
+ID: 4
 ExeStack:
    (string varf;(varf=test.in;(openRFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))))
 SymTable:
@@ -5,6 +6,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 4
 ExeStack:
    string varf
    (varf=test.in;(openRFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))))
@@ -13,6 +15,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 4
 ExeStack:
    string varf
    (varf=test.in;(openRFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))))
@@ -21,6 +24,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 4
 ExeStack:
    (varf=test.in;(openRFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))))
 SymTable:
@@ -29,6 +33,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 4
 ExeStack:
    (varf=test.in;(openRFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))))
 SymTable:
@@ -37,6 +42,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 4
 ExeStack:
    varf=test.in
    (openRFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))
@@ -46,6 +52,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 4
 ExeStack:
    varf=test.in
    (openRFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))
@@ -55,6 +62,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 4
 ExeStack:
    (openRFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))
 SymTable:
@@ -63,6 +71,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 4
 ExeStack:
    (openRFile(varf);(int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))))
 SymTable:
@@ -71,6 +80,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 4
 ExeStack:
    openRFile(varf)
    (int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))
@@ -80,6 +90,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 4
 ExeStack:
    openRFile(varf)
    (int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))
@@ -89,6 +100,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 4
 ExeStack:
    (int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))
 SymTable:
@@ -98,6 +110,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    (int varc;(readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))))
 SymTable:
@@ -107,6 +120,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    int varc
    (readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))
@@ -117,6 +131,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    int varc
    (readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))
@@ -127,6 +142,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    (readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))
 SymTable:
@@ -137,6 +153,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    (readFile(varf, varc);(print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf)))))
 SymTable:
@@ -147,6 +164,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    readFile(varf, varc)
    (print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))
@@ -158,6 +176,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    readFile(varf, varc)
    (print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))
@@ -169,6 +188,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    (print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))
 SymTable:
@@ -179,6 +199,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    (print(varc);(readFile(varf, varc);(print(varc);closeRFile(varf))))
 SymTable:
@@ -189,6 +210,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    print(varc)
    (readFile(varf, varc);(print(varc);closeRFile(varf)))
@@ -200,6 +222,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    print(varc)
    (readFile(varf, varc);(print(varc);closeRFile(varf)))
@@ -211,6 +234,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    (readFile(varf, varc);(print(varc);closeRFile(varf)))
 SymTable:
@@ -222,6 +246,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    (readFile(varf, varc);(print(varc);closeRFile(varf)))
 SymTable:
@@ -233,6 +258,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    readFile(varf, varc)
    (print(varc);closeRFile(varf))
@@ -245,6 +271,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    readFile(varf, varc)
    (print(varc);closeRFile(varf))
@@ -257,6 +284,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    (print(varc);closeRFile(varf))
 SymTable:
@@ -268,6 +296,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    (print(varc);closeRFile(varf))
 SymTable:
@@ -279,6 +308,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    print(varc)
    closeRFile(varf)
@@ -291,6 +321,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    print(varc)
    closeRFile(varf)
@@ -303,6 +334,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    closeRFile(varf)
 SymTable:
@@ -315,6 +347,7 @@ FileTable:
    test.in
 Heap:
 
+ID: 4
 ExeStack:
    closeRFile(varf)
 SymTable:
@@ -327,16 +360,7 @@ FileTable:
    test.in
 Heap:
 
-ExeStack:
-SymTable:
-   varf --> test.in
-   varc --> 0
-Out:
-   1
-   0
-FileTable:
-Heap:
-
+ID: 4
 ExeStack:
 SymTable:
    varf --> test.in

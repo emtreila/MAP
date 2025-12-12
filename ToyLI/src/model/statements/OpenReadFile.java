@@ -4,6 +4,7 @@ import exceptions.StatementExecutionException;
 import model.adts.IDictionary;
 import model.expressions.IExpression;
 import model.ProgramState;
+import model.types.IType;
 import model.types.StringType;
 import model.values.IValue;
 import model.values.StringValue;
@@ -46,12 +47,21 @@ public class OpenReadFile implements IStatement {
                     "Could not open file " + fileName
             );
         }
-        return state;
+        return null;
     }
 
 
     @Override
     public String toString() {
         return "openRFile(" + expression.toString() + ")";
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementExecutionException {
+        IType typeExpr = this.expression.typeCheck(typeEnv);
+        if (!typeExpr.equals(new StringType())) {
+            throw new StatementExecutionException("Expression" + this.expression + " is not of type string.");
+        }
+        return typeEnv;
     }
 }

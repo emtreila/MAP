@@ -5,6 +5,8 @@ import model.ProgramState;
 import model.adts.IDictionary;
 import model.adts.IHeap;
 import model.expressions.IExpression;
+import model.types.IType;
+import model.types.RefType;
 import model.values.IValue;
 import model.values.RefValue;
 
@@ -12,7 +14,7 @@ public class WriteHeapStatement implements IStatement {
     private IExpression expression;
     private String varName;
 
-    public WriteHeapStatement(IExpression expression, String varName) {
+    public WriteHeapStatement(String varName,IExpression expression) {
         this.expression = expression;
         this.varName = varName;
     }
@@ -48,12 +50,22 @@ public class WriteHeapStatement implements IStatement {
 
         heap.update(address, exprValue);
 
-        return state;
+        return null;
     }
 
     @Override
     public String toString() {
         return "writeHeap(" + this.varName + ", " + this.expression.toString() + ")";
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementExecutionException {
+        IType typeVar = typeEnv.getValue(this.varName);
+        IType typeExpr = this.expression.typeCheck(typeEnv);
+        if (!typeVar.equals(new RefType(typeExpr))) {
+            throw new StatementExecutionException("Variable " + this.varName + " is not of RefType.");
+        }
+        return typeEnv;
     }
 
 }

@@ -29,6 +29,12 @@ public class VarDeclStatement implements IStatement {
             throw new StatementExecutionException("Variable already defined!");
         }
         symTable.add(this.name, this.type.defaultValue());
-        return state;
+        return null;
+    }
+    
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementExecutionException{
+        typeEnv.add(this.name, this.type);
+        return typeEnv;
     }
 }

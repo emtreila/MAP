@@ -2,8 +2,6 @@ package view;
 
 import controller.Controller;
 
-import java.io.IOException;
-
 public class RunExample extends Command {
 
     private Controller controller;
@@ -17,7 +15,7 @@ public class RunExample extends Command {
     public void execute() {
         try {
             this.controller.allStep();
-        } catch (IOException e) {
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }

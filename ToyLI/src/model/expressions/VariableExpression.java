@@ -3,6 +3,7 @@ package model.expressions;
 import exceptions.ExpressionEvaluationException;
 import model.adts.IDictionary;
 import model.adts.IHeap;
+import model.types.IType;
 import model.values.IValue;
 
 public class VariableExpression implements IExpression {
@@ -25,9 +26,13 @@ public class VariableExpression implements IExpression {
         return result;
     }
 
-
     @Override
     public String toString() {
         return this.name;
+    }
+
+    @Override
+    public IType typeCheck(IDictionary<String, IType> typeEnv) throws ExpressionEvaluationException {
+        return typeEnv.getValue(this.name);
     }
 }

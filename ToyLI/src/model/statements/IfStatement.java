@@ -6,6 +6,7 @@ import model.adts.IStack;
 import model.expressions.IExpression;
 import model.ProgramState;
 import model.types.BoolType;
+import model.types.IType;
 import model.values.BoolValue;
 import model.values.IValue;
 
@@ -45,6 +46,18 @@ public class IfStatement implements IStatement {
             exeStack.push(this.thenStatement);
         else
             exeStack.push(this.elseStatement);
-        return state;
+        return null;
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementExecutionException {
+        IType typeExpr = this.expression.typeCheck(typeEnv);
+        if (!typeExpr.equals(new BoolType())) {
+            throw new StatementExecutionException("The condition of IF isnt of  type bool");
+        }
+        this.thenStatement.typeCheck(typeEnv.deepCopy());
+        this.elseStatement.typeCheck(typeEnv.deepCopy());
+        return typeEnv;
+
     }
 }

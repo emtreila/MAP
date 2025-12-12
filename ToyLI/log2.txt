@@ -1,3 +1,204 @@
+ID: 2
+ExeStack:
+   (bool a;(int v;(a=true;(if (a)then {v=2} else {v=3};print(v)))))
+SymTable:
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   bool a
+   (int v;(a=true;(if (a)then {v=2} else {v=3};print(v))))
+SymTable:
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   bool a
+   (int v;(a=true;(if (a)then {v=2} else {v=3};print(v))))
+SymTable:
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   (int v;(a=true;(if (a)then {v=2} else {v=3};print(v))))
+SymTable:
+   a --> false
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   (int v;(a=true;(if (a)then {v=2} else {v=3};print(v))))
+SymTable:
+   a --> false
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   int v
+   (a=true;(if (a)then {v=2} else {v=3};print(v)))
+SymTable:
+   a --> false
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   int v
+   (a=true;(if (a)then {v=2} else {v=3};print(v)))
+SymTable:
+   a --> false
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   (a=true;(if (a)then {v=2} else {v=3};print(v)))
+SymTable:
+   a --> false
+   v --> 0
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   (a=true;(if (a)then {v=2} else {v=3};print(v)))
+SymTable:
+   a --> false
+   v --> 0
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   a=true
+   (if (a)then {v=2} else {v=3};print(v))
+SymTable:
+   a --> false
+   v --> 0
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   a=true
+   (if (a)then {v=2} else {v=3};print(v))
+SymTable:
+   a --> false
+   v --> 0
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   (if (a)then {v=2} else {v=3};print(v))
+SymTable:
+   a --> true
+   v --> 0
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   (if (a)then {v=2} else {v=3};print(v))
+SymTable:
+   a --> true
+   v --> 0
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   if (a)then {v=2} else {v=3}
+   print(v)
+SymTable:
+   a --> true
+   v --> 0
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   if (a)then {v=2} else {v=3}
+   print(v)
+SymTable:
+   a --> true
+   v --> 0
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   v=2
+   print(v)
+SymTable:
+   a --> true
+   v --> 0
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   v=2
+   print(v)
+SymTable:
+   a --> true
+   v --> 0
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   print(v)
+SymTable:
+   a --> true
+   v --> 2
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+   print(v)
+SymTable:
+   a --> true
+   v --> 2
+Out:
+FileTable:
+Heap:
+
+ID: 2
+ExeStack:
+SymTable:
+   a --> true
+   v --> 2
+Out:
+   2
+FileTable:
+Heap:
+
+ID: 2
 ExeStack:
    (int a;(int b;(a=2 ADD 3 MUL 5;(b=a ADD 1;print(b)))))
 SymTable:
@@ -5,6 +206,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    int a
    (int b;(a=2 ADD 3 MUL 5;(b=a ADD 1;print(b))))
@@ -13,6 +215,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    int a
    (int b;(a=2 ADD 3 MUL 5;(b=a ADD 1;print(b))))
@@ -21,6 +224,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    (int b;(a=2 ADD 3 MUL 5;(b=a ADD 1;print(b))))
 SymTable:
@@ -29,6 +233,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    (int b;(a=2 ADD 3 MUL 5;(b=a ADD 1;print(b))))
 SymTable:
@@ -37,6 +242,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    int b
    (a=2 ADD 3 MUL 5;(b=a ADD 1;print(b)))
@@ -46,6 +252,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    int b
    (a=2 ADD 3 MUL 5;(b=a ADD 1;print(b)))
@@ -55,6 +262,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    (a=2 ADD 3 MUL 5;(b=a ADD 1;print(b)))
 SymTable:
@@ -64,6 +272,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    (a=2 ADD 3 MUL 5;(b=a ADD 1;print(b)))
 SymTable:
@@ -73,6 +282,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    a=2 ADD 3 MUL 5
    (b=a ADD 1;print(b))
@@ -83,6 +293,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    a=2 ADD 3 MUL 5
    (b=a ADD 1;print(b))
@@ -93,6 +304,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    (b=a ADD 1;print(b))
 SymTable:
@@ -102,6 +314,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    (b=a ADD 1;print(b))
 SymTable:
@@ -111,6 +324,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    b=a ADD 1
    print(b)
@@ -121,6 +335,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    b=a ADD 1
    print(b)
@@ -131,6 +346,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    print(b)
 SymTable:
@@ -140,6 +356,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 2
 ExeStack:
    print(b)
 SymTable:
@@ -149,15 +366,7 @@ Out:
 FileTable:
 Heap:
 
-ExeStack:
-SymTable:
-   a --> 17
-   b --> 18
-Out:
-   18
-FileTable:
-Heap:
-
+ID: 2
 ExeStack:
 SymTable:
    a --> 17

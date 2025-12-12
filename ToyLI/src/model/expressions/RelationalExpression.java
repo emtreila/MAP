@@ -3,10 +3,14 @@ package model.expressions;
 import exceptions.ExpressionEvaluationException;
 import model.adts.IDictionary;
 import model.adts.IHeap;
+import model.types.BoolType;
+import model.types.IType;
 import model.types.IntType;
 import model.values.BoolValue;
 import model.values.IValue;
 import model.values.IntValue;
+
+import java.lang.invoke.StringConcatFactory;
 
 public class RelationalExpression implements IExpression {
     private IExpression expr1;
@@ -48,5 +52,18 @@ public class RelationalExpression implements IExpression {
     @Override
     public String toString() {
         return this.expr1.toString() + " " + this.operator + " " + this.expr2.toString();
+    }
+
+    @Override
+    public IType typeCheck(IDictionary<String, IType> typeEnv) throws ExpressionEvaluationException {
+        IType type1, type2;
+        type1 = this.expr1.typeCheck(typeEnv);
+        type2 = this.expr2.typeCheck(typeEnv);
+
+        if (!type1.equals(new IntType()))
+            throw new ExpressionEvaluationException("First operand is not an integer.");
+        if (!type2.equals(new IntType()))
+            throw new ExpressionEvaluationException("Second operand is not an integer.");
+        return new BoolType();
     }
 }

@@ -1,3 +1,4 @@
+ID: 5
 ExeStack:
    (Ref(int) v;(new(v, 20);(Ref(Ref(int)) a;(new(a, v);(print(v);print(a))))))
 SymTable:
@@ -5,6 +6,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 5
 ExeStack:
    Ref(int) v
    (new(v, 20);(Ref(Ref(int)) a;(new(a, v);(print(v);print(a)))))
@@ -13,6 +15,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 5
 ExeStack:
    Ref(int) v
    (new(v, 20);(Ref(Ref(int)) a;(new(a, v);(print(v);print(a)))))
@@ -21,6 +24,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 5
 ExeStack:
    (new(v, 20);(Ref(Ref(int)) a;(new(a, v);(print(v);print(a)))))
 SymTable:
@@ -29,6 +33,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 5
 ExeStack:
    (new(v, 20);(Ref(Ref(int)) a;(new(a, v);(print(v);print(a)))))
 SymTable:
@@ -37,6 +42,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 5
 ExeStack:
    new(v, 20)
    (Ref(Ref(int)) a;(new(a, v);(print(v);print(a))))
@@ -46,6 +52,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 5
 ExeStack:
    new(v, 20)
    (Ref(Ref(int)) a;(new(a, v);(print(v);print(a))))
@@ -55,6 +62,7 @@ Out:
 FileTable:
 Heap:
 
+ID: 5
 ExeStack:
    (Ref(Ref(int)) a;(new(a, v);(print(v);print(a))))
 SymTable:
@@ -64,6 +72,7 @@ FileTable:
 Heap:
    1 --> 20
 
+ID: 5
 ExeStack:
    (Ref(Ref(int)) a;(new(a, v);(print(v);print(a))))
 SymTable:
@@ -73,6 +82,7 @@ FileTable:
 Heap:
    1 --> 20
 
+ID: 5
 ExeStack:
    Ref(Ref(int)) a
    (new(a, v);(print(v);print(a)))
@@ -83,6 +93,7 @@ FileTable:
 Heap:
    1 --> 20
 
+ID: 5
 ExeStack:
    Ref(Ref(int)) a
    (new(a, v);(print(v);print(a)))
@@ -93,6 +104,7 @@ FileTable:
 Heap:
    1 --> 20
 
+ID: 5
 ExeStack:
    (new(a, v);(print(v);print(a)))
 SymTable:
@@ -103,6 +115,7 @@ FileTable:
 Heap:
    1 --> 20
 
+ID: 5
 ExeStack:
    (new(a, v);(print(v);print(a)))
 SymTable:
@@ -113,6 +126,7 @@ FileTable:
 Heap:
    1 --> 20
 
+ID: 5
 ExeStack:
    new(a, v)
    (print(v);print(a))
@@ -124,6 +138,7 @@ FileTable:
 Heap:
    1 --> 20
 
+ID: 5
 ExeStack:
    new(a, v)
    (print(v);print(a))
@@ -135,6 +150,7 @@ FileTable:
 Heap:
    1 --> 20
 
+ID: 5
 ExeStack:
    (print(v);print(a))
 SymTable:
@@ -146,6 +162,7 @@ Heap:
    1 --> 20
    2 --> Ref(1, int)
 
+ID: 5
 ExeStack:
    (print(v);print(a))
 SymTable:
@@ -157,6 +174,7 @@ Heap:
    1 --> 20
    2 --> Ref(1, int)
 
+ID: 5
 ExeStack:
    print(v)
    print(a)
@@ -169,6 +187,7 @@ Heap:
    1 --> 20
    2 --> Ref(1, int)
 
+ID: 5
 ExeStack:
    print(v)
    print(a)
@@ -181,6 +200,7 @@ Heap:
    1 --> 20
    2 --> Ref(1, int)
 
+ID: 5
 ExeStack:
    print(a)
 SymTable:
@@ -193,6 +213,7 @@ Heap:
    1 --> 20
    2 --> Ref(1, int)
 
+ID: 5
 ExeStack:
    print(a)
 SymTable:
@@ -205,18 +226,7 @@ Heap:
    1 --> 20
    2 --> Ref(1, int)
 
-ExeStack:
-SymTable:
-   a --> Ref(2, Ref(int))
-   v --> Ref(1, int)
-Out:
-   Ref(1, int)
-   Ref(2, Ref(int))
-FileTable:
-Heap:
-   1 --> 20
-   2 --> Ref(1, int)
-
+ID: 5
 ExeStack:
 SymTable:
    a --> Ref(2, Ref(int))

@@ -35,7 +35,18 @@ public class AssignmentStatement implements IStatement {
             throw new StatementExecutionException("Declared type of variable " + this.name + " and type of the assigned expression do not match.");
         }
         symTable.update(this.name, value);
-        return state;
+        return null;
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementExecutionException {
+        IType typeVar = typeEnv.getValue(this.name);
+        IType typeExpr = this.expression.typeCheck(typeEnv);
+        if (typeVar.equals(typeExpr)) {
+            return typeEnv;
+        } else {
+            throw new StatementExecutionException("Assignment: right hand side and left hand side have different types ");
+        }
     }
 }
 

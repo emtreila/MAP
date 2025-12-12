@@ -4,6 +4,7 @@ import exceptions.ExpressionEvaluationException;
 import model.adts.IDictionary;
 import model.adts.IHeap;
 import model.types.BoolType;
+import model.types.IType;
 import model.values.BoolValue;
 import model.values.IValue;
 
@@ -46,6 +47,20 @@ public class LogicExpression implements IExpression {
     @Override
     public String toString() {
         return this.exp1.toString() + " " + this.operation + " " + this.exp2.toString();
+    }
+
+    @Override
+    public IType typeCheck(IDictionary<String, IType> typeEnv) throws ExpressionEvaluationException {
+        IType type1, type2;
+        type1 = this.exp1.typeCheck(typeEnv);
+        type2 = this.exp2.typeCheck(typeEnv);
+        if (!type1.equals(new BoolType())) {
+            throw new ExpressionEvaluationException("First operand is not a boolean!");
+        }
+        if (!type2.equals(new BoolType())) {
+            throw new ExpressionEvaluationException("Second operand is not a boolean!");
+        }
+        return new BoolType();
     }
 
 }

@@ -6,6 +6,7 @@ import model.adts.IDictionary;
 import model.adts.IList;
 import model.expressions.IExpression;
 import model.ProgramState;
+import model.types.IType;
 import model.values.IValue;
 
 public class PrintStatement implements IStatement {
@@ -28,6 +29,12 @@ public class PrintStatement implements IStatement {
         IValue value = this.expression.eval(symTable, state.getHeap());
         out.add(value);
 
-        return state;
+        return null;
     }
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementExecutionException {
+        this.expression.typeCheck(typeEnv);
+        return typeEnv;
+    }
+
 }

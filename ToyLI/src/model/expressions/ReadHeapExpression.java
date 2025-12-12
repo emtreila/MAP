@@ -3,6 +3,8 @@ package model.expressions;
 import exceptions.ExpressionEvaluationException;
 import model.adts.IDictionary;
 import model.adts.IHeap;
+import model.types.IType;
+import model.types.RefType;
 import model.values.IValue;
 import model.values.RefValue;
 
@@ -25,12 +27,25 @@ public class ReadHeapExpression implements IExpression {
         if (!heap.isDefined(refValue.getAddress())) {
             throw new ExpressionEvaluationException("The address " + refValue.getAddress() + " is not defined in the heap.");
         }
-        
+
         return heap.getValue(refValue.getAddress());
     }
-    
+
     @Override
     public String toString() {
         return "readHeap(" + this.expression.toString() + ")";
+    }
+
+    @Override
+    public IType typeCheck(IDictionary<String, IType> typeEnv) throws ExpressionEvaluationException {
+        IType type;
+        type = this.expression.typeCheck(typeEnv);
+        if (type instanceof RefType) {
+            RefType refType = (RefType) type;
+            return refType.getInner();
+        } else {
+            throw new ExpressionEvaluationException("The evaluated expression is not a reference value!");
+        }
+
     }
 }

@@ -8,6 +8,12 @@ import repository.*;
 
 public class Interpreter {
     public static Controller makeController(IStatement statement, String logFile) {
+        try{
+            statement.typeCheck(new MyDictionary<>());
+        } catch (Exception e){
+            System.out.println("Typecheck error: " + e.getMessage());
+            return null;
+        }
         ProgramState state = new ProgramState(
                 new MyStack<>(),
                 new MyDictionary<>(),
@@ -19,8 +25,8 @@ public class Interpreter {
         Repo repo = new Repo(state, logFile);
         return new Controller(repo);
     }
-
-
+    
+    
     public static void main(String[] args) {
         Sample samples = new Sample();
         TextMenu menu = new TextMenu();

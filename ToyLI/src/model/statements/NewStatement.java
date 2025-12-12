@@ -5,6 +5,7 @@ import model.ProgramState;
 import model.adts.IDictionary;
 import model.adts.IHeap;
 import model.expressions.IExpression;
+import model.types.IType;
 import model.types.RefType;
 import model.values.IValue;
 import model.values.RefValue;
@@ -42,11 +43,21 @@ public class NewStatement implements IStatement {
         Integer newAddress = heap.add(exprValue);
         IValue newRefValue = new RefValue(newAddress, varRefType.getInner());
         symTable.update(this.varName, newRefValue);
-        return state;
+        return null;
     }
 
     @Override
     public String toString() {
         return "new(" + this.varName + ", " + this.expression.toString() + ")";
+    }
+
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementExecutionException {
+        IType typeVar = typeEnv.getValue(this.varName);
+        IType typeExpr = this.expression.typeCheck(typeEnv);
+        if (!typeVar.equals(new RefType(typeExpr))) {
+            throw new StatementExecutionException("NEW stmt: right hand side and left hand side have different types ");
+        }
+        return typeEnv;
     }
 }

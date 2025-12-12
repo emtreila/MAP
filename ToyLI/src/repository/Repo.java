@@ -6,20 +6,18 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class Repo implements IRepo {
-    private ProgramState programStates;
+    private List<ProgramState> programStates;
     private String logFilePath;
 
     public Repo(ProgramState state, String logFilePath) {
-        this.programStates = state;
+        this.programStates = new ArrayList<>();
         this.logFilePath = logFilePath;
-    }
-
-    @Override
-    public ProgramState getCurrentProgram() {
-        return this.programStates;
+        this.programStates.add(state);
     }
 
     @Override
@@ -29,5 +27,13 @@ public class Repo implements IRepo {
         }
     }
 
+    @Override
+    public List<ProgramState> getProgramStatesList() {
+        return this.programStates;
+    }
 
+    @Override
+    public void setProgramStatesList(List<ProgramState> newProgramStates) {
+        this.programStates = newProgramStates;
+    }
 }

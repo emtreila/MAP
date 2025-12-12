@@ -1,6 +1,9 @@
 package model.statements;
 
+import exceptions.StatementExecutionException;
 import model.ProgramState;
+import model.adts.IDictionary;
+import model.types.IType;
 
 public class NopStatement implements IStatement {
 
@@ -14,6 +17,11 @@ public class NopStatement implements IStatement {
 
     @Override
     public ProgramState execute(ProgramState state) {
-        return state;
+        return null;
+    }
+    
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementExecutionException {
+        return typeEnv;
     }
 }

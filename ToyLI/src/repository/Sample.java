@@ -160,7 +160,7 @@ public class Sample {
                                 ),
                                 new CompoundStatement(
                                         new WriteHeapStatement(
-                                                new ValueExpression(new IntValue(30)), "v"
+                                                "v", new ValueExpression(new IntValue(30))
                                         ),
                                         new PrintStatement(
                                                 new ArithmeticExpression(
@@ -228,6 +228,136 @@ public class Sample {
         );
 
 
+//        IStatement ex10 = new CompoundStatement(
+//                new VarDeclStatement("v", new RefType(new IntType())),
+//                new CompoundStatement(
+//                        new NewStatement("v", new ValueExpression(new IntValue(20))),
+//                        new CompoundStatement(
+//                                new VarDeclStatement("a", new RefType(new RefType(new IntType()))),
+//                                new CompoundStatement(
+//                                        new NewStatement("a", new VariableExpression("v")),
+//                                        new CompoundStatement(
+//                                                new VarDeclStatement("b", new RefType(
+//                                                        new RefType(new RefType(new IntType())))
+//                                                ),
+//                                                new CompoundStatement(
+//                                                        new NewStatement("b", new VariableExpression("a")),
+//                                                        new CompoundStatement(
+//                                                                new NewStatement("v",
+//                                                                        new ValueExpression(new IntValue(30))),
+//                                                                new CompoundStatement(
+//                                                                        new WriteHeapStatement(
+//                                                                                new VariableExpression("v"),
+//                                                                                "a"
+//                                                                        ),
+//                                                                        new PrintStatement(
+//                                                                                new ReadHeapExpression(
+//                                                                                        new ReadHeapExpression(
+//                                                                                                new ReadHeapExpression(
+//                                                                                                        new VariableExpression("b")
+//                                                                                                )
+//                                                                                        )
+//                                                                                )
+//                                                                        )
+//                                                                )
+//                                                        )
+//                                                )
+//                                        )
+//                                )
+//                        )
+//                )
+//        );
+
+//        IStatement ex10 = new CompoundStatement(
+//                new VarDeclStatement("v", new RefType(new IntType())),
+//                new CompoundStatement(
+//                        new NewStatement("v", new ValueExpression(new IntValue(20))),
+//                        new CompoundStatement(
+//                                new VarDeclStatement("a", new RefType(new RefType(new IntType()))),
+//                                new CompoundStatement(
+//                                        new NewStatement("a", new VariableExpression("v")),
+//                                        new CompoundStatement(
+//                                                new VarDeclStatement("b",
+//                                                        new RefType(new RefType(new RefType(new IntType())))),
+//                                                new CompoundStatement(
+//                                                        new NewStatement("b", new VariableExpression("a")),
+//                                                        new CompoundStatement(
+//                                                                new VarDeclStatement("w",
+//                                                                        new RefType(new IntType())),
+//                                                                new CompoundStatement(
+//                                                                        new NewStatement("w",
+//                                                                                new ValueExpression(new IntValue(30))),
+//                                                                        new CompoundStatement(
+//                                                                                new NewStatement("v",
+//                                                                                        new ValueExpression(new IntValue(40))),
+//                                                                                new CompoundStatement(
+//                                                                                        new NewStatement("a",
+//                                                                                                new VariableExpression("w")),
+//                                                                                        new PrintStatement(
+//                                                                                                new ReadHeapExpression(
+//                                                                                                        new ReadHeapExpression(
+//                                                                                                                new ReadHeapExpression(
+//                                                                                                                        new VariableExpression("b")
+//                                                                                                                )
+//                                                                                                        )
+//                                                                                                )
+//                                                                                        )
+//                                                                                )
+//                                                                        )
+//                                                                )
+//                                                        )
+//                                                )
+//                                        )
+//                                )
+//                        )
+//                )
+//        );
+
+        IStatement ex10 = new CompoundStatement(
+                new VarDeclStatement("v", new IntType()),
+                new CompoundStatement(
+                        new VarDeclStatement("a", new RefType(new IntType())),
+                        new CompoundStatement(
+                                new AssignmentStatement("v", new ValueExpression(new IntValue(10))),
+                                new CompoundStatement(
+                                        new NewStatement("a", new ValueExpression(new IntValue(22))),
+                                        new CompoundStatement(
+                                                new ForkStatement(
+                                                        new CompoundStatement(
+                                                                new WriteHeapStatement("a",
+                                                                        new ValueExpression(new IntValue(30))
+
+                                                                ),
+                                                                new CompoundStatement(
+                                                                        new AssignmentStatement("v",
+                                                                                new ValueExpression(new IntValue(32))),
+                                                                        new CompoundStatement(
+                                                                                new PrintStatement(
+                                                                                        new VariableExpression("v")),
+                                                                                new PrintStatement(
+                                                                                        new ReadHeapExpression(
+                                                                                                new VariableExpression("a")
+                                                                                        )
+                                                                                )
+                                                                        )
+                                                                )
+                                                        )
+                                                ),
+                                                new CompoundStatement(
+                                                        new PrintStatement(new VariableExpression("v")),
+                                                        new PrintStatement(
+                                                                new ReadHeapExpression(
+                                                                        new VariableExpression("a")
+                                                                )
+                                                        )
+                                                )
+                                        )
+                                )
+                        )
+                )
+        );
+
+
         this.statement.add(ex1);
         this.statement.add(ex2);
         this.statement.add(ex3);
@@ -237,6 +367,7 @@ public class Sample {
         this.statement.add(ex7);
         this.statement.add(ex8);
         this.statement.add(ex9);
+        this.statement.add(ex10);
     }
 
     public IStatement getStatement(int index) {

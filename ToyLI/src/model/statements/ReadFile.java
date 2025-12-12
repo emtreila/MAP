@@ -4,7 +4,9 @@ import exceptions.StatementExecutionException;
 import model.adts.IDictionary;
 import model.expressions.IExpression;
 import model.ProgramState;
+import model.types.IType;
 import model.types.IntType;
+import model.types.RefType;
 import model.types.StringType;
 import model.values.IValue;
 import model.values.IntValue;
@@ -63,12 +65,25 @@ public class ReadFile implements IStatement {
         } catch (NumberFormatException e) {
             throw new StatementExecutionException("File " + fileName + " contains a non-integer value.");
         }
-        return state;
+        return null;
     }
 
 
     @Override
     public String toString() {
         return "readFile(" + this.expression.toString() + ", " + this.varName + ")";
+    }
+    
+    @Override
+    public IDictionary<String, IType> typeCheck(IDictionary<String, IType> typeEnv) throws StatementExecutionException{
+        IType typeVar = typeEnv.getValue(this.varName);
+        IType typeExpr = this.expression.typeCheck(typeEnv);
+        if(!typeExpr.equals(new StringType())){
+            throw new StatementExecutionException("Expression " + this.expression + " is not of type string.");
+        }
+        if (!typeVar.equals(new IntType())){
+            throw new StatementExecutionException("Variable " + this.varName + " is not of type int.");
+        }
+        return typeEnv;
     }
 }
